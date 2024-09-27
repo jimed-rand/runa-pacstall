@@ -1,5 +1,6 @@
 pkgname="waydroid-script-git"
 gives="waydroid-script"
+pkgver"177.1a2d3ad"
 source=("https://github.com/casualsnek/waydroid_script.git")
 makedepends=("git")
 pacdeps=("waydroid-deb")
