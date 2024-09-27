@@ -3,7 +3,7 @@ gives="waydroid-script"
 pkgver"177.1a2d3ad"
 source=("https://github.com/casualsnek/waydroid_script.git")
 makedepends=("git")
-pacdeps=("waydroid-deb")
+pacdeps=("waydroid-deb" "python-inquirerpy-deb")
 depends=("python3-requests" "python3-tqdm" "python3-inquirer" "python3-dbus" "lzip" "libsqlite3-dev")
 breaks=("${gives}")
 pkgdesc=("Python Script to add OpenGapps, Magisk, libhoudini translation library and libndk translation library to Waydroid")
