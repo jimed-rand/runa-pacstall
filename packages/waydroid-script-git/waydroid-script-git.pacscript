@@ -1,7 +1,6 @@
 pkgname="waydroid-script-git"
 gives="waydroid-script"
 source=("https://github.com/casualsnek/waydroid_script.git")
-pkgver="r177-1a2d3ad"
 makedepends=("git")
 pacdeps=("waydroid-deb")
 depends=("python3-requests" "python3-tqdm" "python3-inquirer" "python3-dbus" "lzip" "libsqlite3-dev")
