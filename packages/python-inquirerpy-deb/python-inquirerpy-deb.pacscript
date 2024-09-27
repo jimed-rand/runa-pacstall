@@ -1,0 +1,10 @@
+pkgname="python-inquirerpy-deb"
+gives="python-inquirerpy"
+replaces=("${gives}")
+repology=("project: ${gives}")
+pkgver="0.3.4-2"
+source=("https://download.opensuse.org/repositories/home:/jimed-rand:/debian-repo/Debian_Unstable/all/python3-inquirerpy_0.3.4-2_all.deb")
+pkgdesc="Python port of the famous Inquirer.js"
+sha256sums=("c24559c01bc755e2dac7b12c3489411480d5c5c3c69b0b0c5569e5ff0cf98f8c")
+arch=('amd64')
+maintainer=("James Ed Randson <jimedrand@disroot.org>")
