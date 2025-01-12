@@ -1,4 +1,4 @@
-pkgname=waydroid-git
+pkgname=waydroid
 gives=waydroid
 pkgver="1.4.3"
 pkgrel="2"
@@ -7,11 +7,12 @@ arch=("any")
 url="https://waydro.id/"
 maintainer=("James Ed Randson <jimedrand@disroot.org>")
 depends=("lxc" "dnsmasq" "python3" "python3-gi" "gir1.2-gtk-3.0" "dbus" "python3-dbus" "polkitd" "iptables" "python3-pyclipper")
+makedepends=("pkg-config" "libglib2.0-dev")
 source=(
         "https://github.com/sailfishos/libglibutil/archive/refs/tags/1.0.79.tar.gz"
         "https://github.com/mer-hybris/libgbinder/archive/refs/tags/1.1.42.tar.gz"
-        "https://github.com/erfanoabdi/gbinder-python.git"
-        "https://github.com/waydroid/waydroid.git"
+        "https://github.com/erfanoabdi/gbinder-python/archive/refs/heads/master.zip"
+        "https://github.com/waydroid/waydroid/archive/refs/heads/main.zip"
 )
 sha256sums=(
         "4d689cb79f8ea061e46b89008370dc771b07164ee496850d9d56d9d85f1be1c3"
@@ -21,22 +22,22 @@ sha256sums=(
 )
 
 build(){
-    cd ${srcdir}/libglibutil
+    cd ${srcdir}/libglibutil-1.0.79
     make KEEP_SYMBOLS=1 release pkgconfig
-    cd ${srcdir}/libgbinder
+    cd ${srcdir}/libgbinder-1.1.42
     make KEEP_SYMBOLS=1 release pkgconfig
-    cd ${srcdir}/python-gbinder
+    cd ${srcdir}/gbinder-python-master
     python3 setup.py build --cython
 }
 
 package(){
-    cd ${srcdir}/libglibutil
+    cd ${srcdir}/libglibutil-1.0.79
     make install-dev DESTDIR="${pkgdir}/usr/share/waydroid/libglibutil"
-    cd ${srcdir}/libgbinder
+    cd ${srcdir}/libgbinder-1.1.42
     make install-dev DESTDIR="${pkgdir}/usr/share/waydroid/libgbinder"
-    cd ${srcdir}/python-gbinder
+    cd ${srcdir}/gbinder-python-master
     python3 setup.py install --prefix=/usr --root="${pkgdir}/usr/share/waydroid/python-gbinder"
-    cd ${srcdir}/${pkgname}
+    cd ${srcdir}/waydroid-main
     make -C waydroid install DESTDIR="${pkgdir}/usr/share/waydroid" USE_NFTABLES=1
     cat << EOF > "${pkgdir}/usr/share/applications/waydroid.desktop"
 [Desktop Entry]
