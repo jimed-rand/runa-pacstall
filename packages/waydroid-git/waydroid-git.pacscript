@@ -5,9 +5,8 @@ pkgrel="2"
 pkgdesc="Bring Android support on your own Wayland session which runs under LXC container"
 arch=("any")
 url="https://waydro.id/"
-license=("GPL")
 maintainer=("James Ed Randson <jimedrand@disroot.org>")
-depends=("lxc" "dnsmasq" " "python3" "python3-gi" "gir1.2-gtk-3.0" "dbus" "python3-dbus" "polkitd" "iptables" "python3-pyclipper")
+depends=("lxc" "dnsmasq" "python3" "python3-gi" "gir1.2-gtk-3.0" "dbus" "python3-dbus" "polkitd" "iptables" "python3-pyclipper")
 source=(
         "https://github.com/sailfishos/libglibutil/archive/refs/tags/1.0.79.tar.gz"
         "https://github.com/mer-hybris/libgbinder/archive/refs/tags/1.1.42.tar.gz"
